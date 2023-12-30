@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %} Опрос {% endblock %}
+{% block content %}
+<form action="/" method = 'GET'>
+    <button type="submit" class="btn bg-secondary btn-lg">Вернуться к описанию</button>
+</form>
+<form action="/process" method = 'GET' target="_blank">
+    <div class="container pt-5 my-5 border">
+        <div align="center">
+    <fieldset>
+            <i><b>Согласны ли Вы на сбор и обработку персональных данных в анонимизированном виде?</b></i><br>
+                <input type="radio" class="form-check-input" name="ask" value="yes" required> Да<br>
+            <i>Укажите, пожалуйста, Ваш пол:</i><br>
+                <input type="radio" class="form-check-input" name="gender" value="m"> Мужской<br>
+                <input type="radio" class="form-check-input" name="gender" value="f" checked> Женский<br>
+            <i>Укажите, пожалуйста, Ваш возраст (цифрой, например:</i><b> 48</b><i>)</i>:<br>
+                <div class="col-sm-4">
+                <input type="text" class="form-control mt-3" placeholder="48" name="age" required pattern='[1234567890]+'><br>
+                </div>
+            <i>Выберите, пожалуйста, Ваш уровень образования:</i><br>
+                <input type="radio" class="form-check-input" name="education" value="1"> Незаконченное основное<br>
+                <input type="radio" class="form-check-input" name="education" value="2"> Законченное основное<br>
+                <input type="radio" class="form-check-input" name="education" value="3"> Незаконченное среднее (или среднее профессиональное)<br>
+                <input type="radio" class="form-check-input" name="education" value="4" checked> Законченное среднее (или среднее профессиональное)<br>
+                <input type="radio" class="form-check-input" name="education" value="5"> Незаконченное высшее<br>
+                <input type="radio" class="form-check-input" name="education" value="6"> Законченное высшее<br>
+                <input type="radio" class="form-check-input" name="education" value="7"> Учёная степень<br><br>
+    </fieldset>
+            </div>
+    </div>
+    <fieldset>
+        <div class="container pt-5 my-5 border">
+            <h5>Ниже представлено несколько предложений, в каждом из которых есть пропуск.
+                Пожалуйста, для каждого предложения выберите тот вариант из списка, который лучше дополняет предложение.</h5>
+            <p>Петя заканчивает работать в 17 часов, и в 20 часов ему надо быть дома. Между работой и приходом
+                домой он хочет погулять. Его прогулка
+                тогда ограничена сверху<select class="btn btn-primary dropdown-toggle" name="upper" required>
+                    <option></option>
+                    <option value="early">17-ю</option>
+                    <option value="late">20-ю</option>
+                </select> часами.</p>
+            <p>Вася в 8 встаёт и в 10 должен выйти из дома, чтобы успеть на автобус.
+                Если он хочет ещё и побриться, то его бритьё будет снизу ограничено<select class="btn btn-primary dropdown-toggle" name="lower" required>
+                    <option></option>
+                    <option value="early">8-ю</option>
+                    <option value="late">10-ю</option>
+                </select> часами.</p>
+            <p><select class="btn btn-primary dropdown-toggle" name="whatisbefore" required>
+                    <option></option>
+                    <option value="up">Верхняя</option>
+                    <option value="low">Нижняя</option>
+                </select> граница нашего с тобой свидания – 17 часов, после этого я убегаю домой.</p>
+            <p><select class="btn btn-primary dropdown-toggle" name="whatisafter" required>
+                    <option></option>
+                    <option value="up">Верхняя</option>
+                    <option value="low">Нижняя</option>
+                </select> граница моей вечеринки – 18 часов, до этого я на работе.</p>
+        </div>
+    <p><input type="submit" class="btn btn-primary btn-lg btn-block" value="Отправить ответы"></p>
+    </fieldset>
+</form>
+{% endblock %}

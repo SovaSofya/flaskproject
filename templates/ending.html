@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} Спасибо! {% endblock %}
+{% block content %}
+<div class="container pt-5 my-5 border">
+<h3 align="center">Спасибо Вам за помощь с нашим исследованием! Если желаете, Вы можете ознакомиться со статистикой
+по текущим результатам на вкладке "Статистика" или по кнопке ниже.</h3>
+<form action="/statistics" method = 'GET' target="_blank">
+    <button type="submit" class="btn btn-info btn-lg btn-block">Текущие результаты</button>
+</form>
+</div>
+{% endblock %}
